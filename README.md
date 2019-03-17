@@ -13,7 +13,7 @@ sudo apt install -y tmux git tig tmux cmake
 
 ## i3 Window Manager
 
-Install [i3 window manager](https://i3wm.org/). This [video](https://i3wm.org/) shows a good introduction to the installation and basic features of i3.
+Install [i3 window manager](https://i3wm.org/). This [video](https://youtu.be/j1I63wGcvU4) shows a good introduction to the installation and basic features of i3. There is also a [handy reference card](https://i3wm.org/docs/refcard.html).
 
 ```bash
 sudo apt install i3
