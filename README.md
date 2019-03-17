@@ -19,6 +19,80 @@ Install [i3 window manager](https://i3wm.org/). This [video](https://youtu.be/j1
 sudo apt install i3
 ```
 
+disable 'ctrl + d' exit on terminal. ('mod + d' is so close to it...XD)
+```bash
+# add 
+set -o set -o ignoreeof
+```
+
+add startup applications to  ~/.config/i3/config file
+```bash
+# language input
+exec --no-startup-id fcitx-autostart
+# for gnome systems
+exec --no-startup-id gnome-settings-daemon
+# network manager applet
+exec --no-startup-id nm-applet
+```
+
+custom script to lock|logout|suspend|hibernate|reboot|shutdown
+```bash
+# cp i3/i3exit ${HOME}/.local/bin/
+i3exit (lock|logout|suspend|hibernate|reboot|shutdown)
+
+# use i3exit script
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "$mode_system"
+```
+
+audio control
+
+```bash
+# Based from https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
+# audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse -R sset Master 3277+ # increase volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse -R sset Master 3277- #decrease volume
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle # toggle mute
+```
+
+wallpaper
+
+```bash
+# install feh
+sudo apt install feh
+
+# i3 config
+exec_always --no-startup-id feh --bg-scale [/path/to/image.extenstion]
+```
+
+multiple display settings
+
+```bash
+#install arandr
+sudo apt install arandr
+
+# run application, then save settings (that contains xrandr command with arguments) and add to i3 config file using exec_always
+arandr
+```
+
+launch a working gnome-control-center
+
+```bash
+env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+```
+
 ---
 
 ## tmux
