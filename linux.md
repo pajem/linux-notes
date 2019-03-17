@@ -3,6 +3,14 @@ Useful linux commands and environment setup.
 
 ---
 
+Base applications
+
+```bash
+sudo apt install -y tmux git tig tmux cmake
+```
+
+---
+
 ## i3 Window Manager
 
 Install [i3 window manager](https://i3wm.org/). This [video](https://i3wm.org/) shows a good introduction to the installation and basic features of i3.
