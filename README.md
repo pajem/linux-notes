@@ -87,9 +87,33 @@ sudo apt install arandr
 arandr
 ```
 
+rename workspaces
+
+```bash
+# set a variable for the workspace names in i3 config
+set $ws1 "1"
+```
+
+assign to workspace
+
+```bash
+# add the lines below to i3 config
+# the class name can be known using 'xprop'
+assign [class="Google-chrome"] $ws1
+assign [class="Gnome-terminal"] $ws2
+```
+
+auto start applications on workspaces
+```bash
+exec --no-startup-id i3-msg "workspace $ws1; exec /usr/bin/google-chrome"
+exec --no-startup-id i3-msg "workspace $ws2; exec /usr/bin/gnome-terminal"
+exec --no-startup-id i3-msg "workspace $ws3; exec /usr/bin/code"
+```
+
 launch a working gnome-control-center
 
 ```bash
+# add the script to ${HOME}/.local/bin
 env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
 ```
 
