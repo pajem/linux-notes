@@ -6,7 +6,7 @@ Useful linux commands and environment setup.
 Base applications
 
 ```bash
-sudo apt install -y tmux git tig tmux cmake
+sudo apt install -y tmux git tig tmux cmake taskwarrior
 ```
 
 ---
