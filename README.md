@@ -57,6 +57,12 @@ mode "$mode_system" {
 bindsym $mod+x mode "$mode_system"
 ```
 
+add calendar shortcut
+```bash
+# add to i3 config
+bindsym $mod+c exec zenity --calendar
+```
+
 audio control
 
 ```bash
@@ -108,6 +114,13 @@ auto start applications on workspaces
 exec --no-startup-id i3-msg "workspace $ws1; exec /usr/bin/google-chrome"
 exec --no-startup-id i3-msg "workspace $ws2; exec /usr/bin/gnome-terminal"
 exec --no-startup-id i3-msg "workspace $ws3; exec /usr/bin/code"
+```
+
+change workspace icon
+```bash
+# - download webfont zip file from font-awesome github page
+# - copy *.ttf files into ~/.fonts/ directory
+# - use font-awesome cheatsheet to copy the font into i3 config file as workspace name
 ```
 
 launch a working gnome-control-center
