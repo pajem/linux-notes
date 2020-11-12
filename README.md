@@ -176,6 +176,34 @@ Comment: Start fcitx
 
 ---
 
+## Environment
+
+### setup opt dir for local installations
+
+```bash
+# create dir
+sudo mkdir -p /opt/${USER}
+sudo chown -R ${USER}:${USER} /opt/izac/
+
+# copy setup.bash
+cp setup.bash /opt/${USER}/
+```
+
+### add function in bashrc to activate user environment
+
+```bash
+# in ~/.bashrc file, add snipper below...
+function user-activate {
+        source /opt/${USER}/setup.bash
+        export PS1="(${USER}) "$PS1
+}
+
+# then run user-activate to enable user environment
+user-activate
+```
+
+---
+
 ## Unsorted
 Yet to be sorted...
 
